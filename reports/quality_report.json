@@ -1,0 +1,73 @@
+{
+ "generated_utc": "2026-10-25T13:11:46Z",
+ "dataset_version": "1.0.0",
+ "rows": 180815,
+ "columns": {
+  "observation_date": "datetime64[ns]",
+  "curve_type": "str",
+  "quote_basis": "str",
+  "maturity_label": "str",
+  "maturity_value": "float64",
+  "maturity_unit": "str",
+  "value_pct": "float64"
+ },
+ "null_counts": {
+  "observation_date": 0,
+  "curve_type": 0,
+  "quote_basis": 0,
+  "maturity_label": 0,
+  "maturity_value": 0,
+  "maturity_unit": 0,
+  "value_pct": 0
+ },
+ "duplicate_primary_keys": 0,
+ "validation_failures": [],
+ "date_min": "1990-01-02",
+ "date_max": "2026-10-23",
+ "value_pct_min": -1.91,
+ "value_pct_max": 9.18,
+ "negative_values": 5032,
+ "reconciliation": {
+  "source_non_null_cells": 180815,
+  "rows_before_dedup": 180815,
+  "rows_after_dedup": 180815,
+  "rows_equal_source_non_null_cells": true
+ },
+ "by_curve": {
+  "bill_rate": {
+   "rows": 53312,
+   "observation_days": 6207,
+   "first_date": "2002-01-02",
+   "last_date": "2026-10-23",
+   "max_gap_calendar_days": 4,
+   "gaps_over_5_days": 0
+  },
+  "par_nominal": {
+   "rows": 99894,
+   "observation_days": 9209,
+   "first_date": "1990-01-02",
+   "last_date": "2026-10-23",
+   "max_gap_calendar_days": 4,
+   "gaps_over_5_days": 0
+  },
+  "par_real": {
+   "rows": 27609,
+   "observation_days": 5957,
+   "first_date": "2003-01-02",
+   "last_date": "2026-10-23",
+   "max_gap_calendar_days": 4,
+   "gaps_over_5_days": 0
+  }
+ },
+ "raw_files": 86,
+ "files": {
+  "finchrona_treasury_rates.csv": {
+   "bytes": 9523188,
+   "sha256": "51b491451672db5f6d1bdf4a2cde391ee1adf81804e4341e219716e6ad49f3dd"
+  },
+  "finchrona_treasury_rates.parquet": {
+   "bytes": 326516,
+   "sha256": "cdbb54e2f00fafe80e6e749dc252915aa0852fc9cae101b4865098f7938689ba"
+  }
+ }
+}

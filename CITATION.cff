@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "FinChrona: Open Financial Time Series"
+version: 1.0.0
+date-released: 2026-10-25
+type: dataset
+authors:
+  - alias: itzsam-lol
+repository-code: "https://github.com/itzsam-lol/finchroma_01"
+license: CC0-1.0

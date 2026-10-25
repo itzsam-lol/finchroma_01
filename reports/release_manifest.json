@@ -1,0 +1,57 @@
+{
+ "dataset": "FinChrona: Open Financial Time Series",
+ "version": "1.0.0",
+ "cutoff_date": "2026-10-23",
+ "generated_utc": "2026-10-25T13:13:02Z",
+ "rows": 180815,
+ "files": [
+  {
+   "name": "finchrona_treasury_rates.parquet",
+   "role": "primary analytical file",
+   "bytes": 326516,
+   "sha256": "cdbb54e2f00fafe80e6e749dc252915aa0852fc9cae101b4865098f7938689ba"
+  },
+  {
+   "name": "finchrona_treasury_rates.csv",
+   "role": "CSV copy of the same data",
+   "bytes": 9523188,
+   "sha256": "51b491451672db5f6d1bdf4a2cde391ee1adf81804e4341e219716e6ad49f3dd"
+  },
+  {
+   "name": "sample_last_60_days.csv",
+   "role": "small sample (most recent 60 days)",
+   "bytes": 75636,
+   "sha256": "1bcc94bbcdf6eff00f4aa6c5c26c3170ee247a094b92a4eb84e65284b0c8fe55"
+  },
+  {
+   "name": "data_dictionary.md",
+   "role": "documentation",
+   "bytes": 1388,
+   "sha256": "d3c8376a5132d14745647ff97232fba91df0afb555a12214ebde6a2dc665f5a9"
+  },
+  {
+   "name": "methodology.md",
+   "role": "documentation",
+   "bytes": 1596,
+   "sha256": "789ca8662faf1237e3da28ebf20046299948f647f90efb370644fed473f61208"
+  },
+  {
+   "name": "licensing_and_attribution.md",
+   "role": "documentation",
+   "bytes": 1333,
+   "sha256": "2e3e047510206d1432232a8aedd351a2b1994a68035cacad6151d01673cef361"
+  },
+  {
+   "name": "quality_report.md",
+   "role": "documentation",
+   "bytes": 1214,
+   "sha256": "c98a1328298359ba36a83098a809aa153cc330d7ec9ed902c976616222032ff9"
+  },
+  {
+   "name": "README.md",
+   "role": "dataset card",
+   "bytes": 2618,
+   "sha256": "da191bd4997a234ebf586351c949e617ded99c51b08b0417f838e034eced4e15"
+  }
+ ]
+}

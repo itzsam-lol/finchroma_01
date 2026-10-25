@@ -1,0 +1,272 @@
+{
+ "generated_utc": "2026-10-25T13:11:46Z",
+ "source_files": 86,
+ "total_raw_bytes": 1157062,
+ "series_count": 33,
+ "series": [
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "bank_discount",
+   "maturity_label": "13W",
+   "min": "2002-01-02",
+   "max": "2026-10-23",
+   "count": 6207
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "bank_discount",
+   "maturity_label": "17W",
+   "min": "2022-10-19",
+   "max": "2026-10-23",
+   "count": 1003
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "bank_discount",
+   "maturity_label": "26W",
+   "min": "2002-01-02",
+   "max": "2026-10-23",
+   "count": 6207
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "bank_discount",
+   "maturity_label": "4W",
+   "min": "2002-01-02",
+   "max": "2026-10-23",
+   "count": 6206
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "bank_discount",
+   "maturity_label": "52W",
+   "min": "2002-01-30",
+   "max": "2026-10-23",
+   "count": 4606
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "bank_discount",
+   "maturity_label": "6W",
+   "min": "2025-02-18",
+   "max": "2026-10-23",
+   "count": 422
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "bank_discount",
+   "maturity_label": "8W",
+   "min": "2018-10-16",
+   "max": "2026-10-23",
+   "count": 2005
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "coupon_equivalent",
+   "maturity_label": "13W",
+   "min": "2002-01-02",
+   "max": "2026-10-23",
+   "count": 6207
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "coupon_equivalent",
+   "maturity_label": "17W",
+   "min": "2022-10-19",
+   "max": "2026-10-23",
+   "count": 1003
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "coupon_equivalent",
+   "maturity_label": "26W",
+   "min": "2002-01-02",
+   "max": "2026-10-23",
+   "count": 6207
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "coupon_equivalent",
+   "maturity_label": "4W",
+   "min": "2002-01-02",
+   "max": "2026-10-23",
+   "count": 6206
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "coupon_equivalent",
+   "maturity_label": "52W",
+   "min": "2002-01-30",
+   "max": "2026-10-23",
+   "count": 4606
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "coupon_equivalent",
+   "maturity_label": "6W",
+   "min": "2025-02-18",
+   "max": "2026-10-23",
+   "count": 422
+  },
+  {
+   "curve_type": "bill_rate",
+   "quote_basis": "coupon_equivalent",
+   "maturity_label": "8W",
+   "min": "2018-10-16",
+   "max": "2026-10-23",
+   "count": 2005
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "1.5M",
+   "min": "2025-02-18",
+   "max": "2026-10-23",
+   "count": 422
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "10Y",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9209
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "1M",
+   "min": "2001-07-31",
+   "max": "2026-10-23",
+   "count": 6310
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "1Y",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9209
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "20Y",
+   "min": "1993-10-01",
+   "max": "2026-10-23",
+   "count": 8270
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "2M",
+   "min": "2018-10-16",
+   "max": "2026-10-23",
+   "count": 2005
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "2Y",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9209
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "30Y",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 8215
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "3M",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9206
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "3Y",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9209
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "4M",
+   "min": "2022-10-19",
+   "max": "2026-10-23",
+   "count": 1003
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "5Y",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9209
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "6M",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9209
+  },
+  {
+   "curve_type": "par_nominal",
+   "quote_basis": "par_yield",
+   "maturity_label": "7Y",
+   "min": "1990-01-02",
+   "max": "2026-10-23",
+   "count": 9209
+  },
+  {
+   "curve_type": "par_real",
+   "quote_basis": "par_yield",
+   "maturity_label": "10Y",
+   "min": "2003-01-02",
+   "max": "2026-10-23",
+   "count": 5957
+  },
+  {
+   "curve_type": "par_real",
+   "quote_basis": "par_yield",
+   "maturity_label": "20Y",
+   "min": "2004-07-27",
+   "max": "2026-10-23",
+   "count": 5566
+  },
+  {
+   "curve_type": "par_real",
+   "quote_basis": "par_yield",
+   "maturity_label": "30Y",
+   "min": "2010-02-22",
+   "max": "2026-10-23",
+   "count": 4172
+  },
+  {
+   "curve_type": "par_real",
+   "quote_basis": "par_yield",
+   "maturity_label": "5Y",
+   "min": "2003-01-02",
+   "max": "2026-10-23",
+   "count": 5957
+  },
+  {
+   "curve_type": "par_real",
+   "quote_basis": "par_yield",
+   "maturity_label": "7Y",
+   "min": "2003-01-02",
+   "max": "2026-10-23",
+   "count": 5957
+  }
+ ]
+}
