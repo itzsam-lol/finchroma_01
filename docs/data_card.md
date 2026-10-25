@@ -40,7 +40,7 @@ Zero duplicate keys, zero nulls, no weekend dates; 180,815 non-null source cells
 - Daily frequency only; not real-time. Not investment advice.
 
 ## Links
-GitHub: https://github.com/itzsam-lol/finchroma_01 · Kaggle: https://www.kaggle.com/datasets/samuraiiii/finchrona-financial-time-series
+GitHub: https://github.com/itzsam-lol/finchroma_01 · Kaggle: https://www.kaggle.com/datasets/samuraiiii/finchrona-financial-time-series · Hugging Face: https://huggingface.co/datasets/samisonhf/finchrona
 
 ## Citation
 FinChrona: Open Financial Time Series, v1.0.0 (2026). https://github.com/itzsam-lol/finchroma_01

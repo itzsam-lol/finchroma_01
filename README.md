@@ -5,7 +5,8 @@
 FinChrona v1.0.0 is a daily history of **US Treasury par yield curves (nominal and real/TIPS) and bill rates**, 1990-01-02 to 2026-10-23, in one consistent long schema (180,815 rows, 7 columns). Source: U.S. Department of the Treasury, Daily Treasury Rates.
 
 - Kaggle: https://www.kaggle.com/datasets/samuraiiii/finchrona-financial-time-series
-- Hugging Face: not yet published (credentials unavailable at release time)
+- Hugging Face: https://huggingface.co/datasets/samisonhf/finchrona
+- Kaggle notebook (EDA): https://www.kaggle.com/code/samuraiiii/finchrona-treasury-rates-eda
 - Parquet file in this repo: `data/processed/finchrona_treasury_rates.parquet`; CSV and docs on Kaggle.
 
 ## Schema

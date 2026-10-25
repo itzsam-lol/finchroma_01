@@ -8,7 +8,7 @@ US Treasury daily par nominal, par real and bill rates; 180,815 rows, 7 columns;
 |---|---|
 | GitHub https://github.com/itzsam-lol/finchroma_01 | published and verified (commit ab58bac on main, README reachable) |
 | Kaggle https://www.kaggle.com/datasets/samuraiiii/finchrona-financial-time-series | published and verified (status ready, page 200, 9 files, sizes match manifest) |
-| Hugging Face | **not published**: the local token was rejected as invalid; run `hf auth login`, then `hf repos create <user>/finchrona --repo-type dataset` and `hf upload <user>/finchrona release . --repo-type dataset` after `python scripts/prepare_release.py --kaggle-user samuraiiii` |
+| Hugging Face https://huggingface.co/datasets/samisonhf/finchrona | published by the repo owner outside this session; public, 11 files listed, checksums not compared |
 
 ## Tests
 `pytest`: 8 passed. `validate_dataset.py`: OK. Quickstart executed.

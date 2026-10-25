@@ -1,0 +1,193 @@
+{
+  "title": "FinChrona: Open Financial Time Series",
+  "id": "samuraiiii/finchrona-financial-time-series",
+  "subtitle": "Daily US Treasury par, real/TIPS and bill rates, 1990-2026, in one long schema",
+  "description": "# FinChrona: Open Financial Time Series\n\n*Open financial data, built for research.* Version 1.0.0, cutoff 2026-10-23.\n\n## What this is\nDaily US Treasury par yield curves (nominal and real/TIPS) and Treasury bill rates, reshaped into one long schema: 180,815 rows, 7 columns, 1990-01-02 to 2026-10-23.\n\n| curve_type | coverage | rows |\n|---|---|---|\n| par_nominal | 1990-01-02 .. 2026-10-23 | 99,894 |\n| par_real | 2003-01-02 .. 2026-10-23 | 27,609 |\n| bill_rate (bank discount and coupon equivalent) | 2002-01-02 .. 2026-10-23 | 53,312 |\n\n## Files\n- `finchrona_treasury_rates.parquet`: primary file.\n- `finchrona_treasury_rates.csv`: same data.\n- `sample_last_60_days.csv`, `data_dictionary.md`, `methodology.md`, `quality_report.md`, `release_manifest.json` (SHA-256 of every file).\n\n## Columns\n`observation_date`, `curve_type`, `quote_basis`, `maturity_label`, `maturity_value`, `maturity_unit`, `value_pct` (percent per annum). Primary key: `(observation_date, curve_type, quote_basis, maturity_label)`. See `data_dictionary.md`.\n\n## Usage\n```python\nimport pandas as pd\ndf = pd.read_parquet(\"finchrona_treasury_rates.parquet\")\nnom = df[df.curve_type == \"par_nominal\"].pivot(index=\"observation_date\", columns=\"maturity_label\", values=\"value_pct\")\nspread = nom[\"10Y\"] - nom[\"2Y\"]\n```\n\n## Source and licence\nSource: U.S. Department of the Treasury, Daily Treasury Rates (https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics), retrieved 2026-10-25. US Government work, not subject to US copyright; the compiled dataset is released under CC0 1.0. Treasury publishes no explicit licence text on the pages inspected; see `licensing_and_attribution.md`. Not endorsed by the Treasury.\n\n## Quality\nZero duplicate keys, zero nulls, no weekend dates; 180,815 non-null source cells map to exactly 180,815 rows. 5,032 negative values exist (4,940 real yields, 92 bill rates); these are genuine, not errors.\n\n## Limitations\n- Blank source cells (maturity not offered) have no row; nothing is imputed. The 30Y nominal series is absent 2002-02-19 to 2006-02-08, as published.\n- Not point-in-time: no publication timestamps or revision history; Treasury may restate values.\n- Par yields are modelled curve points, bill rates are indicative quotes; neither is a tradable price.\n- Daily frequency only; not real-time. Not investment advice.\n\n## Links\nGitHub: https://github.com/itzsam-lol/finchroma_01 \u00b7 Kaggle: https://www.kaggle.com/datasets/samuraiiii/finchrona-financial-time-series \u00b7 Hugging Face: https://huggingface.co/datasets/samisonhf/finchrona\n\n## Citation\nFinChrona: Open Financial Time Series, v1.0.0 (2026). https://github.com/itzsam-lol/finchroma_01\n",
+  "licenses": [
+    {
+      "name": "CC0-1.0"
+    }
+  ],
+  "keywords": [
+    "finance",
+    "economics"
+  ],
+  "expectedUpdateFrequency": "quarterly",
+  "userSpecifiedSources": "FinChrona v1.0.0 was compiled from the U.S. Department of the Treasury's official Daily Treasury Rates data.\n\nOfficial source: https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics\n\nThe source files were retrieved on 2026-10-25, with a release cutoff date of 2026-10-23. The release combines nominal par yields, real/TIPS par yields and Treasury bill rates into a consistent seven-column long-format schema.\n\nThe reproducible pipeline acquires public Treasury CSV files, records source URLs and file checksums, transforms the original tables into long format, normalizes maturity labels and quote conventions, and executes schema and data-quality checks.\n\nBlank source cells are not imputed or forward-filled. The dataset preserves negative real yields and bill-rate values where the source reports them.\n\nThis release is a historical snapshot. It does not preserve complete publication timestamps or a historical record of revisions. It is not a real-time feed and is not investment advice.\n\nSee the dataset card, data dictionary, methodology and licensing documentation for detailed definitions, attribution and limitations. FinChrona is independently maintained and is not affiliated with or endorsed by the U.S. Treasury.",
+  "resources": [
+    {
+      "path": "finchrona_treasury_rates.parquet",
+      "description": "The complete curated FinChrona dataset in Parquet format. Contains daily U.S. Treasury nominal par yields, real/TIPS par yields, and Treasury bill rates in a seven-column long-format schema. Intended as the primary file for analytical and research workflows.",
+      "schema": {
+        "fields": [
+          {
+            "name": "observation_date",
+            "title": "observation_date",
+            "type": "datetime",
+            "description": "The U.S. Treasury business date associated with the rate observation, represented as YYYY-MM-DD. This is the observation date, not necessarily the date the information first became publicly available."
+          },
+          {
+            "name": "curve_type",
+            "title": "curve_type",
+            "type": "string",
+            "description": "Identifies the rate series: `par_nominal` for the nominal Treasury par yield curve, `par_real` for the real/TIPS par yield curve, or `bill_rate` for Treasury bill rates."
+          },
+          {
+            "name": "quote_basis",
+            "title": "quote_basis",
+            "type": "string",
+            "description": "Specifies the source quote convention. Par yield observations use `par_yield`; Treasury bill observations use `bank_discount` or `coupon_equivalent`, as provided by the source."
+          },
+          {
+            "name": "maturity_label",
+            "title": "maturity_label",
+            "type": "string",
+            "description": "A compact maturity identifier, such as `4W`, `1M`, `1.5M`, `2Y` or `10Y`, used to filter and compare rate observations."
+          },
+          {
+            "name": "maturity_value",
+            "title": "maturity_value",
+            "type": "numeric",
+            "description": "The numeric maturity quantity associated with the observation. Interpret this value together with `maturity_unit`; it is not a standalone duration in years."
+          },
+          {
+            "name": "maturity_unit",
+            "title": "maturity_unit",
+            "type": "string",
+            "description": "The unit associated with `maturity_value`: week, month or year. The unit is retained as represented by the source rather than silently converting all maturities into a common unit."
+          },
+          {
+            "name": "value_pct",
+            "title": "value_pct",
+            "type": "numeric",
+            "description": "The annualized rate expressed in percentage units, not as a decimal fraction. For example, 3.74 represents 3.74%. Negative real yields and bill-rate observations are retained when present in the source."
+          }
+        ]
+      }
+    },
+    {
+      "path": "finchrona_treasury_rates.csv",
+      "description": "CSV representation of the complete FinChrona dataset, containing the same observations and schema as the primary Parquet file. Suitable for spreadsheets, general-purpose data tools, and workflows that do not support Parquet.",
+      "schema": {
+        "fields": [
+          {
+            "name": "observation_date",
+            "title": "observation_date",
+            "type": "datetime",
+            "description": "The U.S. Treasury business date associated with the rate observation, represented as YYYY-MM-DD. This is the observation date, not necessarily the date the information first became publicly available."
+          },
+          {
+            "name": "curve_type",
+            "title": "curve_type",
+            "type": "string",
+            "description": "Identifies the rate series: `par_nominal` for the nominal Treasury par yield curve, `par_real` for the real/TIPS par yield curve, or `bill_rate` for Treasury bill rates."
+          },
+          {
+            "name": "quote_basis",
+            "title": "quote_basis",
+            "type": "string",
+            "description": "Specifies the source quote convention. Par yield observations use `par_yield`; Treasury bill observations use `bank_discount` or `coupon_equivalent`, as provided by the source."
+          },
+          {
+            "name": "maturity_label",
+            "title": "maturity_label",
+            "type": "string",
+            "description": "A compact maturity identifier, such as `4W`, `1M`, `1.5M`, `2Y` or `10Y`, used to filter and compare rate observations."
+          },
+          {
+            "name": "maturity_value",
+            "title": "maturity_value",
+            "type": "numeric",
+            "description": "The numeric maturity quantity associated with the observation. Interpret this value together with `maturity_unit`; it is not a standalone duration in years."
+          },
+          {
+            "name": "maturity_unit",
+            "title": "maturity_unit",
+            "type": "string",
+            "description": "The unit associated with `maturity_value`: week, month or year. The unit is retained as represented by the source rather than silently converting all maturities into a common unit."
+          },
+          {
+            "name": "value_pct",
+            "title": "value_pct",
+            "type": "numeric",
+            "description": "The annualized rate expressed in percentage units, not as a decimal fraction. For example, 3.74 represents 3.74%. Negative real yields and bill-rate observations are retained when present in the source."
+          }
+        ]
+      }
+    },
+    {
+      "path": "sample_last_60_days.csv",
+      "description": "A small extract from the end of the historical dataset (the most recent 60 calendar days before the cutoff) for inspecting the schema and testing analysis workflows without loading the complete dataset.",
+      "schema": {
+        "fields": [
+          {
+            "name": "observation_date",
+            "title": "observation_date",
+            "type": "datetime",
+            "description": "The U.S. Treasury business date associated with the rate observation, represented as YYYY-MM-DD. This is the observation date, not necessarily the date the information first became publicly available."
+          },
+          {
+            "name": "curve_type",
+            "title": "curve_type",
+            "type": "string",
+            "description": "Identifies the rate series: `par_nominal` for the nominal Treasury par yield curve, `par_real` for the real/TIPS par yield curve, or `bill_rate` for Treasury bill rates."
+          },
+          {
+            "name": "quote_basis",
+            "title": "quote_basis",
+            "type": "string",
+            "description": "Specifies the source quote convention. Par yield observations use `par_yield`; Treasury bill observations use `bank_discount` or `coupon_equivalent`, as provided by the source."
+          },
+          {
+            "name": "maturity_label",
+            "title": "maturity_label",
+            "type": "string",
+            "description": "A compact maturity identifier, such as `4W`, `1M`, `1.5M`, `2Y` or `10Y`, used to filter and compare rate observations."
+          },
+          {
+            "name": "maturity_value",
+            "title": "maturity_value",
+            "type": "numeric",
+            "description": "The numeric maturity quantity associated with the observation. Interpret this value together with `maturity_unit`; it is not a standalone duration in years."
+          },
+          {
+            "name": "maturity_unit",
+            "title": "maturity_unit",
+            "type": "string",
+            "description": "The unit associated with `maturity_value`: week, month or year. The unit is retained as represented by the source rather than silently converting all maturities into a common unit."
+          },
+          {
+            "name": "value_pct",
+            "title": "value_pct",
+            "type": "numeric",
+            "description": "The annualized rate expressed in percentage units, not as a decimal fraction. For example, 3.74 represents 3.74%. Negative real yields and bill-rate observations are retained when present in the source."
+          }
+        ]
+      }
+    },
+    {
+      "path": "data_dictionary.md",
+      "description": "Column-level reference defining data types, units, valid values, quote conventions, missingness semantics, and the record key."
+    },
+    {
+      "path": "methodology.md",
+      "description": "Documentation of source acquisition, transformations from the Treasury's published tables, maturity normalization, data organization, validation, reproducibility, and known limitations."
+    },
+    {
+      "path": "licensing_and_attribution.md",
+      "description": "Documents the source terms investigated for FinChrona, the project's licensing rationale, requested attribution, and unresolved legal uncertainties."
+    },
+    {
+      "path": "quality_report.md",
+      "description": "Machine-generated quality summary documenting row counts, historical coverage, missingness, duplicate checks, value ranges, and source-to-output reconciliation for this release."
+    },
+    {
+      "path": "README.md",
+      "description": "Dataset card: overview of FinChrona's purpose, contents, schema, provenance, usage example, coverage, licensing, and limitations."
+    },
+    {
+      "path": "release_manifest.json",
+      "description": "Release-integrity manifest recording dataset version, cutoff date, file sizes, SHA-256 checksums, and artifact roles."
+    }
+  ]
+}
